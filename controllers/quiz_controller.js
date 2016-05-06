@@ -15,3 +15,7 @@ exports.check = function(req, res, next){
 	res.render('quizzes/result', { result: result,
 								   answer: answer});
 };
+
+//GET /author
+
+
