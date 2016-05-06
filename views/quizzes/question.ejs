@@ -10,7 +10,7 @@
 <h2>Quiz: El juego de las preguntas</h2>
 <form method="get" action="/check">
 	<p>Pregunta: <%= question %> </p>
-	<input type="text" name="answer" value=""
+	<input type="text" name="answer" value="" value="<%= answer %>" 
 						placeholder="Responda Aqui"/>
 	<input type="submit" value="Comprobar">
 </form>
