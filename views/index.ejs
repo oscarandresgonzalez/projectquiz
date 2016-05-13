@@ -8,7 +8,17 @@
   <body>
     <h1><%= title %></h1>
     <p>Bienvenido al portal donde podras jugar a tus propios juegos</p>
+    <table>
+      <% for (var i in quizzes)  { %>
+      <tr>
+        <td>
+          <a href="/quizzes/<%= quizzes[i].id %>"><%= quizzes[i].question %></a>
+        </td>
+      </tr>
+      <% } %>
+    </table>
 
+    <a href="/quizzes/new"><button type="button">Crear Pregunta</button></a>
     <p><a href="/question">Comience a jugar</a></p>
   </body>
 </html>
