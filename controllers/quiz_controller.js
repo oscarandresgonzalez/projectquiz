@@ -15,6 +15,28 @@ exports.load = function(req, res, next, quizId) {
         .catch(function(error) { next(error); });
 };
 
+
+// GET /question
+// exports.question = function(req, res, next) {
+
+// 	models
+// 	.Quiz
+// 	.findOne()
+// 	.then(function(quiz) {
+// 		if(quiz){
+// 			var answer = req.query.answer || '';
+// 				res
+// 				.render('quizzes/question', { question: 'Capital de Italia',
+// 									 answer:answer});
+// 		}
+// 		else
+// 		{
+// 			throw new Error('No hay preguntas en la BBDD');
+
+// 		}
+// 	}).catch(function(error) { next(error);});
+// };
+
 //GET /quizzes
 exports.index = function(req, res, next) {
 	models.Quiz.findAll().then(function(quizzes){
@@ -23,45 +45,17 @@ exports.index = function(req, res, next) {
 	.catch(function(error){ next(error); });
 };
 
-
-
-// GET /question
-exports.question = function(req, res, next) {
-
-	models
-	.Quiz
-	.findOne()
-	.then(function(quiz) {
-		if(quiz){
-			var answer = req.query.answer || '';
-				res
-				.render('quizzes/question', { question: 'Capital de Italia',
-									 answer:answer});
-		}
-		else
-		{
-			throw new Error('No hay preguntas en la BBDD');
-
-		}
-	}).catch(function(error) { next(error);});
-};
-
-//GET /quizzes/:id
+// GET /quizzes/:quizId
 exports.show = function(req, res, next){
-	
 		var answer = req.query.answer || '';
 		res.render('quizzes/show', {quiz: req.quiz,
-								    answer: answer});
-	
+								    answer: answer});	
 };
 
 // GET /quizzes/:quizId/check
 exports.check = function(req, res, next) {
-
 	var answer = req.query.answer || "";
-
 	var result = answer === req.quiz.answer ? 'Correcta' : 'Incorrecta';
-
 	res.render('quizzes/result', { quiz: req.quiz, 
 								   result: result, 
 								   answer: answer });
@@ -90,6 +84,4 @@ exports.create = function(req, res, next){
 
 
 
-//GET /author
-
-
+//GET
